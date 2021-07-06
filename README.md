@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# Card Game App
+
+## Technologies used:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+Base components are done with [React Bootstrap](https://react-bootstrap.netlify.app/components/). It is currently in the beta but should become stable soon. 
+Import components like `import Button from 'react-bootstrap/Button';` to avoid all of the components being bundled.
+
+Styling should be done in scss (as that allows us to overwrite bootstrap variables and use mixins etc from there).
 
 ## Available Scripts
 
