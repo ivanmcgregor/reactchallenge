@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { mount } from '@cypress/react';
 import App from './App';
 
-xit('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+it('renders the app', () => {
+  mount(<App />);
+  cy.get('header').contains('Header');
 });
