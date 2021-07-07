@@ -9,37 +9,44 @@ Import components like `import Button from 'react-bootstrap/Button';` to avoid a
 
 Styling should be done in scss (as that allows us to overwrite bootstrap variables and use mixins etc from there).
 
+Testing is done with cypress, see their [docs](https://docs.cypress.io/guides/getting-started/writing-your-first-test) for more info.
+
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm cy` / `npm cypress`
+### `npm cy:ct`
 
-Runs the app in cypress development mode.\
-Opens a new browser with your tests. Will refresh, when you do changes. Does not require the normal server to run and uses it's config.
+Runs the app in cypress component testing mode. This is the unit test equivalent of your components. It will test every `*.(spec|test).(js|ts|jsx|tsx)` file in the `./src` folder.
 
-Will mock all requests you tell cypress to mock, hence is preferable during development.\
+Opens a new browser with your tests. Will refresh, when you do changes. Does not require the normal server to run and uses it's config. You might have to import the global styling if you require it for your tests.
+
+If you have typical unit tests that test maybe a function, then you can test this with the underlying assertion stack as part of the component tests.
+
+### `npm cy:e2e`
+
+Will open the cypress ui so that you can pick e2e tests to run. This will run in your browser and load all tests from `./cypress/integration`. These tests should be across multiple components and testing the interaction (contrary to the component tests).
+
+Cypress will mock all requests you tell cypress to mock, hence is preferable during development and for integration testing of our components. Do not mock every server request, so that we also test the integration with the backend systems!
 
 
-### `npm e2e`
+### `npm test:ct`
 
-Runs all cypress tests headless for CI. See cy for more details.\
+Runs all cypress component tests headless for CI. See cy:ct for more details.\
+
+
+### `npm test:e2e`
+
+Runs all cypress e2e tests headless for CI. See cy:e2e for more details.\
 
 
 ### `npm start`
 
-Runs the app in the default react development mode. Consider using `cy` instead.\
+Runs the app in the default react development mode. Consider using either `cy:ct` instead or use it in conjunction with `cy:e2e`.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
-
-### `npm test`
-
-*** will use the same files as cypress, only use after changing setup ***
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
