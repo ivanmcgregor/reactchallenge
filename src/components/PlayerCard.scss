@@ -1,0 +1,12 @@
+@import '../assets/styles/variables.scss';
+
+.player-card {
+  cursor: pointer;
+  transition: $transition-all;
+
+  &:hover, 
+  &.active {
+    border-color: $orange;
+    box-shadow: $selected-shadow;
+  }
+}
