@@ -1,6 +1,7 @@
 import useSWR from 'swr';
 import {useState} from 'react';
 
+// @ts-ignore
 const fetcher = (...rest) => fetch(...rest).then(res => res.json())
 
 export interface IPlayer {

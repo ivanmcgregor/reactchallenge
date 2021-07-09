@@ -15,12 +15,15 @@ const sortOptions = [
   { name: 'Sort Desc', value: SORT_DESC },
 ];
 
-function PlayerSelect() {
+function PlayerSelect(
+  {selectedPlayer, setSelectedPlayer}: {
+    selectedPlayer: undefined | IPlayer;
+    setSelectedPlayer: React.Dispatch<React.SetStateAction<IPlayer | undefined>>
+  }) {
   const [sorting, setSorting] = useState<null | string>(null);
   const {players, isLoading, isError} = usePlayers();
-  const [selected, setSelected] = useState<null | IPlayer>(null);
 
-  const sortedPlayers = useMemo<IPlayer[]>(() => {
+  const sortedPlayers = useMemo<IPlayer[]>(():any => {
     // if no sorting option was selected, return in server order
     if (!sorting) {
       return players;
@@ -34,9 +37,9 @@ function PlayerSelect() {
 
   return (
     <div className="player-select">
-      <div className="d-flex">
+      <div className="d-flex mb-2">
         <h2 className="flex-grow-1">Overview</h2>
-        <ToggleButtonGroup className="mb-2" name="sortoptions-radio">
+        <ToggleButtonGroup name="sortoptions-radio">
           {sortOptions.map((radio, idx) => (
             <ToggleButton
               key={idx}
@@ -57,11 +60,11 @@ function PlayerSelect() {
       {sortedPlayers?.length > 0 && (
         <Row>
           {sortedPlayers.map((player) => (
-            <Col key={player.playerName} sm={2} md={3}>
+            <Col key={player.playerName} sm={2} md={4}>
               <PlayerCard
                 {...player}
-                isActive={player.playerName === selected?.playerName}
-                onClick={() => setSelected(player)} ></PlayerCard>
+                isActive={player.playerName === selectedPlayer?.playerName}
+                onClick={() => setSelectedPlayer(player)} ></PlayerCard>
             </Col>
           ))}
         </Row>

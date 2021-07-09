@@ -2,17 +2,15 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './PlayerCard.scss'
+import {IPlayer} from '../utils/api';
 
-interface Props {
+interface Props extends IPlayer {
   isActive?: boolean;
-  realName: string;
-  playerName: string;
-  asset: string;
   onClick: () => void;
 }
 
 function PlayerCard({ isActive, realName, playerName, asset, onClick }: Props) {
-  const cardClass = `player-card mb-2${isActive ? ' active' : ''}`
+  const cardClass = `player-card mt-2${isActive ? ' active' : ''}`
   return (
     <Card className={cardClass} onClick={onClick}>
       <Card.Body>
