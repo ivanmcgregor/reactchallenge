@@ -11,6 +11,10 @@ Styling should be done in scss (as that allows us to overwrite bootstrap variabl
 
 Testing is done with cypress, see their [docs](https://docs.cypress.io/guides/getting-started/writing-your-first-test) for more info.
 
+## Setup
+
+Install node, preferably in the LTS version 14.x.x on your system. Afterwards, run `npm i` to pull and install all node dependencies.
+
 ## Available Scripts
 
 In the project directory, you can run:
