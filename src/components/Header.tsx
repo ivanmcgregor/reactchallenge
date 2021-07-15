@@ -5,7 +5,7 @@ function Header() {
     <nav className="navbar navbar-light bg-light mb-4">
       <div className="container-fluid">
         <span className="navbar-text">
-          CardGame
+          ReactChallenge
         </span>
       </div>
     </nav>

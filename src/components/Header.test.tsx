@@ -5,5 +5,5 @@ import '../../src/assets/styles/index.scss';
 
 it('renders the app', () => {
   mount(<Header />);
-  cy.get('nav').contains('CardGame');
+  cy.get('nav').contains('ReactChallenge');
 });
